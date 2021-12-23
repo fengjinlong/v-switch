@@ -1,17 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <v-switch :case="name1">
+    <template #one>one</template>
+    <template #two>two</template>
+    <template #three>three</template>
+    <template #default>default</template>
+  </v-switch>
+  <p>当前的name1-,{{name1}}</p>
+  <button @click="click">name1</button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent, reactive, ref } from "vue";
+import vSwitch from "./components/v-switch.vue";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
+    vSwitch,
+  },
+  setup() {
+    let count = 1;
+    const name1 = ref('one');
+
+    const click = () => {
+      count++;
+      name1.value = count % 3 === 0 ? "one": count % 3 === 1 ? "two": "three"
+    };
+    return {
+      name1,
+      click,
+    };
+  },
 });
 </script>
 
