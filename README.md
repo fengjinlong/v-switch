@@ -16,4 +16,4 @@ npm run build
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [阿崔的幸福生活](https://juejin.cn/post/6914198729482305550#heading-7).
